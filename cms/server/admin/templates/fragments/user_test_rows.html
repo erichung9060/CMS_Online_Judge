@@ -1,0 +1,28 @@
+{% import 'macro/pages.html' as macro_pages %}
+
+{# This snippet shows a table using the list user_tests as input #}
+{% if user_test_count == 0 %}
+<p>No user tests found.</p>
+
+{% else %}
+
+{{ macro_pages.selector(page_url, user_test_page, user_test_pages) }}
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>User</th>
+      <th>Task</th>
+      <th>Status</th>
+      <th>User input</th>
+      <th>Files</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ut in user_tests|sort(attribute="timestamp")|reverse %}
+      {% include "fragments/user_test_row.html" %}
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
