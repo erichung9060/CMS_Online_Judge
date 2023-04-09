@@ -4,11 +4,15 @@
 new_task_id=1
 
 # line 196
-for task_id in data.keys():
-    #task_id=list(data.keys())[0]
-    if task_id.isdigit():
-        global new_task_id
-        data[str(new_task_id)] = data.pop(task_id)
-    elif task_id[-1]=='s':
-        data[task_id]['submission']=str(new_task_id);
-        new_task_id+=1
+            print(data)
+
+            global new_task_id
+            global task_id_second
+            for task_id in list(data.keys()):
+                if task_id.isdigit():
+                    data[str(new_task_id)] = data.pop(task_id)
+                    new_task_id+=1
+                elif task_id[-1]=='s':
+                    data[task_id]['submission']=str(task_id_second);
+                    task_id_second+=1
+            print(data)
