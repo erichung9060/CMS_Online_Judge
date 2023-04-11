@@ -14,11 +14,11 @@ git clone https://github.com/erichung1113/cms.git && cd cms
 ```
 **Step. 4 執行docker compose**
 ```
-sudo docker-compose up -d
+docker-compose up -d
 ```
 **Step. 5 建立Admin帳號**
 ```
-sudo docker exec -t cms sudo cmsAddAdmin admin
+docker exec -t cms sudo cmsAddAdmin admin
 ```
 接著打開瀏覽器並輸入以下網址就可使用啦
 
