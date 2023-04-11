@@ -5,3 +5,7 @@ First ensure that you have installed the [Contest Management System](http://cms-
 Then:
 1. Import the users with: `cmsImportUser --all -L italy_yaml .`
 2. Import the contest and the tasks with: `cmsImportContest -i -L italy_yaml .`
+
+```
+cmsImportUser --all -L italy_yaml . && cmsImportContest -i -L italy_yaml .
+```
