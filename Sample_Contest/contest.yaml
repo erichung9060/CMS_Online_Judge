@@ -1,0 +1,20 @@
+name: "con_test"
+description: "Contest to test CMS"
+tasks:
+  - "batch"
+  - "batch_file"
+  - "batch_comparator"
+  - "batchgrader"
+  - "communication"
+  - "communicationtwoways"
+  - "outputonly"
+  - "outputonlycomparator"
+  - "batchwithoutgen"
+users:
+  - username: "u1"
+    password: "p1"
+    ip: null
+  - username: "u2"
+    password: "p2"
+    ip: null
+token_mode: infinite

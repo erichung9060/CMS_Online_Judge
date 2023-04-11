@@ -1,0 +1,6 @@
+name: "outputonlycomparator"
+title: "Output only with comparator"
+n_input: 10
+public_testcases: 0, 1, 2, 3, 4
+output_only: True
+token_mode: infinite
