@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 FROM ubuntu:20.04
 
-RUN apt-get update
-RUN apt-get install -y \
+RUN apt update && apt upgrade -y
+RUN apt install -y \
     build-essential \
     cgroup-lite \
     cppreference-doc-en-html \
@@ -18,14 +18,14 @@ RUN apt-get install -y \
     openjdk-8-jdk-headless \
     php7.4-cli \
     postgresql-client \
-    python2 \
     python3-pip \
     python3.8 \
     python3.8-dev \
     rustc \
     sudo \
     wait-for-it \
-    zip
+    zip \
+    vim
 
 # Create cmsuser user with sudo privileges
 RUN useradd -ms /bin/bash cmsuser && \
