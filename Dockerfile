@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
-RUN apt update && apt upgrade -y
-RUN apt install -y \
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y \
     build-essential \
     cgroup-lite \
     cppreference-doc-en-html \
