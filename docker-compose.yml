@@ -18,8 +18,6 @@ services:
       CMS_CONFIG: /usr/local/etc/cms-testdb.conf
     volumes:
       - "./codecov:/home/cmsuser/cms/codecov"
-    mem_limit: 32g
-    memswap_limit: 32g
     ports:
       - 8888:8888
       - 8889:8889
@@ -34,7 +32,6 @@ services:
       sudo chown cmsuser:cmsuser ./codecov ;
 
       sudo sed -i "s/8e045a51e4b102ea803c06f92841a1fb/`python3 -c "from cmscommon import crypto; print(crypto.get_hex_random_key())"`/g" /usr/local/etc/cms.conf;
-      #sudo mkdir /sys/fs/cgroup/memory /sys/fs/cgroup/cpuacct
     
       cmsImportUser --all -L italy_yaml Sample_Contest;
       cmsImportContest -i -L italy_yaml Sample_Contest;
