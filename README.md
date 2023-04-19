@@ -29,3 +29,4 @@ docker exec -t cms sudo cmsAddAdmin admin
 
 計分板：`localhost:8890`
 
+詳細請見 : [CMS Online Judge Docker安裝教學](https://hackmd.io/WKsC33XYRme4sM-Kkst_XA)
