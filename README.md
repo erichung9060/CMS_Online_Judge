@@ -18,7 +18,7 @@ sudo docker-compose up -d
 ```
 **Step. 5 建立Admin帳號**
 ```
-docker exec -t cms sudo cmsAddAdmin admin
+sudo docker exec -t cms sudo cmsAddAdmin admin
 ```
 接著打開瀏覽器並輸入以下網址就可使用啦
 
