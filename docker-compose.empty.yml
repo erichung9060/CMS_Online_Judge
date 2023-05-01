@@ -33,5 +33,5 @@ services:
       sudo sed -i "s/8e045a51e4b102ea803c06f92841a1fb/`python3 -c "from cmscommon import crypto; print(crypto.get_hex_random_key())"`/g" /usr/local/etc/cms.conf;
       
       sudo cmsRankingWebServer &
-      sudo cmsAdminWebServer ;  
-	'
+      sudo cmsAdminWebServer ;
+      '
