@@ -14,7 +14,7 @@ git clone https://github.com/erichung1113/cms.git && cd cms
 ```
 **Step. 4 執行docker compose**
 ```
-docker-compose up -d
+sudo docker-compose up -d
 ```
 **Step. 5 建立Admin帳號**
 ```
