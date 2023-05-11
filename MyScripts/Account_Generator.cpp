@@ -1,11 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define all(a) begin(a), end(a)
-#define pb push_back
-#define pii pair<int, int>
-#define F first
-#define S second
-#define mp make_pair
+#define PASSWORD_LENTH 6
 
 const char chr[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                     'A', 'B', 'C', 'D', 'E', 'F', 'G',
@@ -17,40 +12,42 @@ const char chr[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                     'o', 'p', 'q', 'r', 's', 't',
                     'u', 'v', 'w', 'x', 'y', 'z'};
 
-string genPass() {
+string Generate_Password() {
     string password;
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < PASSWORD_LENTH; i++) {
         int idx = rand() % 62;
-        password.pb(chr[idx]);
+        password += chr[idx];
     }
     return password;
 }
 
-int main() {
-    srand(time(NULL));
-    /*
+/*
+    Output:
+
     users:
       - username: "team1"
         password: "dssinsdnds"
         first_name: "TeamName"
-    */
+*/
+
+int main() {
+    srand(time(0));
+
     ifstream TeamnameFile("teamname.txt");
     ofstream PasswordFile("password.txt");
-    ofstream SettingFile("context.yaml");
+    ofstream SettingFile("contest.user.yaml");
 
-    for (int i = 1; i <= 200; i++) {
-        string password = genPass();
-        string teamname;
-        getline(TeamnameFile,teamname);
-
+    string teamname;
+    int User_Idx = 1;
+    while (getline(TeamnameFile, teamname)) {
+        string password = Generate_Password();
         PasswordFile << password << '\n';
-        SettingFile << "  - username: \"team" << setw(3) << setfill('0') << i << "\"\n";
+        SettingFile << "  - username: \"team" << setw(3) << setfill('0') << User_Idx << "\"\n";
         SettingFile << "    password: \"" << password << "\"\n";
         SettingFile << "    first_name: \"" << teamname << "\"\n";
+        User_Idx++;
     }
     TeamnameFile.close();
     PasswordFile.close();
     SettingFile.close();
 }
-
-// g++ gen.cpp && ./a.out && rm a.out
