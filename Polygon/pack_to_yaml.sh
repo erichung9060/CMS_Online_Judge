@@ -5,13 +5,9 @@ if [[ ! -d "cmsPackage" ]]; then
     mkdir "cmsPackage"
 fi
 
-echo -n "please enter problem name or all : "
-read reply
-
-if [[ $reply == "all" ]];then
+toDoList=$@
+if [[ $# == 0 ]];then
     toDoList=$(ls | sed s/pack.sh//g | sed s/cmsPackage//g)
-else
-    toDoList=$reply
 fi
 
 for PROBLEM_NAME in $toDoList; do
@@ -48,11 +44,13 @@ memory_limit: 256
 n_input: $N
 token_mode: disabled
 public_testcases: $public_tc
-infile: ""
-outfile: ""
+infile: \"\"
+outfile: \"\"
     " > cmsPackage/$PROBLEM_NAME/task.yaml
 
     echo -e "# ST: 100
 $(seq 1 $N)
     " > cmsPackage/$PROBLEM_NAME/gen/GEN
+
+    touch cmsPackage/$PROBLEM_NAME/statement/statement.pdf
 done
