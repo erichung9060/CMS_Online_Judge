@@ -1,25 +1,34 @@
 #!/bin/bash
 set -e
 
-if [[ ! -d "cmsPackage" ]]; then
-    mkdir "cmsPackage"
+if [[ -d "Contest" ]]; then
+    rm -r Contest    
+fi
+mkdir "Contest"
+
+echo -n "Enter file name or blank for all : "
+read toDoList
+
+if [[ $toDoList == "" ]];then
+    toDoList=$(ls | sed s/pack_to_yaml.sh//g | sed s/Contest//g)
 fi
 
-toDoList=$@
-if [[ $# == 0 ]];then
-    toDoList=$(ls | sed s/pack.sh//g | sed s/cmsPackage//g)
-fi
+echo -e "name: \"HSPC-Final\"
+description: \"國立成功大學暑期高中生程式設計邀請賽決賽\"
+token_mode: disabled
+timezone: \"+8\"
+tasks:" > "Contest/contest.yaml"
 
 for PROBLEM_NAME in $toDoList; do
-    if [[ -d "cmsPackage/$PROBLEM_NAME" ]]; then
-        rm -rf cmsPackage/$PROBLEM_NAME
+    if [[ -d "Contest/$PROBLEM_NAME" ]]; then
+        rm -rf Contest/$PROBLEM_NAME
     fi
 
-    mkdir "cmsPackage/$PROBLEM_NAME"
-    mkdir "cmsPackage/$PROBLEM_NAME/statement"
-    mkdir "cmsPackage/$PROBLEM_NAME/gen"
-    mkdir "cmsPackage/$PROBLEM_NAME/input"
-    mkdir "cmsPackage/$PROBLEM_NAME/output"
+    mkdir "Contest/$PROBLEM_NAME"
+    mkdir "Contest/$PROBLEM_NAME/statement"
+    mkdir "Contest/$PROBLEM_NAME/gen"
+    mkdir "Contest/$PROBLEM_NAME/input"
+    mkdir "Contest/$PROBLEM_NAME/output"
     
     N=$(ls $PROBLEM_NAME/tests | wc -l)
     N=$((N/2))
@@ -31,8 +40,8 @@ for PROBLEM_NAME in $toDoList; do
             id="0$i"
         fi
             
-        cp "$PROBLEM_NAME/tests/$id" "cmsPackage/$PROBLEM_NAME/input/input$((i-1)).txt"
-        cp "$PROBLEM_NAME/tests/$id.a" "cmsPackage/$PROBLEM_NAME/output/output$((i-1)).txt"
+        cp "$PROBLEM_NAME/tests/$id" "Contest/$PROBLEM_NAME/input/input$((i-1)).txt"
+        cp "$PROBLEM_NAME/tests/$id.a" "Contest/$PROBLEM_NAME/output/output$((i-1)).txt"
     done
     public_tc=$(seq -s, 0 $((N-1)) )
     public_tc=${public_tc%,}
@@ -46,11 +55,18 @@ token_mode: disabled
 public_testcases: $public_tc
 infile: \"\"
 outfile: \"\"
-    " > cmsPackage/$PROBLEM_NAME/task.yaml
+    " > Contest/$PROBLEM_NAME/task.yaml
 
     echo -e "# ST: 100
 $(seq 1 $N)
-    " > cmsPackage/$PROBLEM_NAME/gen/GEN
+    " > Contest/$PROBLEM_NAME/gen/GEN
 
-    touch cmsPackage/$PROBLEM_NAME/statement/statement.pdf
+    echo "statement" > Contest/$PROBLEM_NAME/statement/statement.pdf
+
+    echo "  - \"$PROBLEM_NAME\"" >> "Contest/contest.yaml"
+
 done
+echo "users:
+  - username: \"test\"
+    password: \"test\"
+    first_name: \"test\"" >> "Contest/contest.yaml"
