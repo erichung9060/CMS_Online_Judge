@@ -51,5 +51,5 @@ for PROBLEM_NAME in $toDoList; do
 done
 
 echo -e "users:\n  - username: \"test\"\n    password: \"test\"\n    first_name: \"test\"" >> "Contest/contest.yaml"
-echo -e "## CMS Contest import command\n\`\`\`\nsudo cmsImportUser --all -L italy_yaml . && sudo cmsImportContest -i -L italy_yaml .\n\`\`\`" >> "Contest/README.md"
-echo ".DS_Store" >> "Contest/.gitignore"
+echo "sudo cmsImportUser --all -L italy_yaml . && sudo cmsImportContest -i -L italy_yaml ." >> "Contest/import.sh"
+echo "Finished!"
