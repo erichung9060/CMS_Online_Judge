@@ -6,7 +6,7 @@ if [[ ! -d "cmsTestCase" ]]; then
 fi
 
 if [[ $# == 0 ]];then
-    toDoList=$(ls | sed s/pack.sh//g | sed s/cmsTestCase//g)
+    toDoList=$(ls | sed s/pack_testcase.sh//g | sed s/cmsTestCase//g)
 else
     toDoList=$@
 fi
