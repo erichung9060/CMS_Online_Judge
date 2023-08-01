@@ -20,10 +20,10 @@ chmod u+x pack_to_yaml.sh && ./pack_to_yaml.sh
 ```
 chmod u+x import.sh && ./import.sh
 ```
-4. After importing the contest, you still need to change some settings:
-    a. score mode //
-    b. allowed language //
-    c. contest's start time and end time //
+4. After importing the contest, you still need to change some settings:\
+    a. score mode \
+    b. allowed language \
+    c. contest's start time and end time \
 
 ## TestCase Only Conversion
 1. Copy pack_testcase.sh to that folder
