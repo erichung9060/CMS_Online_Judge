@@ -23,7 +23,7 @@ chmod u+x import.sh && ./import.sh
 4. After importing the contest, you still need to change some settings:\
     a. score mode \
     b. allowed language \
-    c. contest's start time and end time \
+    c. contest's start time and end time
 
 ## TestCase Only Conversion
 1. Copy pack_testcase.sh to that folder
@@ -35,5 +35,7 @@ chmod u+x pack_testcase.sh && ./pack_testcase.sh
 ```
 <img width="517" alt="image" src="https://user-images.githubusercontent.com/101823195/232981339-1042964f-0612-475c-9798-0d411ea68d14.png">
 
-3. Go to the `Test Case` at the bottom of  CMS Task, click `Add multiple testcases` and select the zip file of the problem to upload.
+3. Go to `Test Case` at the bottom of CMS Task, and click `Add multiple testcases` then select the zip file of the problem to upload.
 <img width="965" alt="image" src="https://user-images.githubusercontent.com/101823195/232983399-95e84d0e-5eaf-490d-8f2f-770c17d560c5.png">
+
+4. Finish!🥳
