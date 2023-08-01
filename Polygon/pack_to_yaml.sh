@@ -6,7 +6,7 @@ if [[ -d "Contest" ]]; then
 fi
 mkdir "Contest"
 
-echo -n "Enter Problem Name or blank for all : "
+echo -n "Enter Problem Name or blank for all to add to a Contest: "
 read toDoList
 
 if [[ $toDoList == "" ]];then
