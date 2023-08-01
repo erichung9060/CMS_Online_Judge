@@ -1,11 +1,11 @@
 # Convert Polygon Package To CMS Format
 
-1. Go Polygon's Packages, click Full and Download the Linux version 
+1. Go Polygon's Packages, click Full and Download the Linux version.
 <img width="1112" alt="image" src="https://user-images.githubusercontent.com/101823195/232975754-166b7831-db3c-4fbd-9975-38cb05f49e2c.png">
 
 2. Extract the archive to a new folder (Remember to change file name, you can add multiple problems in that folder)
 
-Next, there will be two conversion methods, which are Full Contest Conversion and TestCase Only Conversion.
+Next, there will be two conversion methods, which are `Full Contest Conversion` and `TestCase Only Conversion`.
 ## Full Contest Conversion
 1. Copy pack_to_yaml.sh to your folder
 <img width="564" alt="image" src="https://github.com/erichung1113/cms/assets/101823195/87570ab6-e875-497c-acaa-ecbcb9c1f6fe">
@@ -16,14 +16,14 @@ chmod u+x pack_to_yaml.sh && ./pack_to_yaml.sh
 ```
 <img width="565" alt="image" src="https://github.com/erichung1113/cms/assets/101823195/7d1abe87-d0aa-4e28-8dfa-7e382b96756d">
 
-3. You can enter Contest folder and run the command to import contest to cms.
+3. You need to go into the Contest folder and run the command to import contest on CMS.
 ```
 chmod u+x import.sh && ./import.sh
 ```
-4. After importing the contest, there are a few more settings you need to do:
-    1. score mode
-    2. allowed language
-    3. contest's start time and end time
+4. After importing the contest, you still need to change some settings:
+    a. score mode //
+    b. allowed language //
+    c. contest's start time and end time //
 
 ## TestCase Only Conversion
 1. Copy pack_testcase.sh to that folder
