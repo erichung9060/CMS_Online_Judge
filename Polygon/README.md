@@ -1,6 +1,6 @@
 # Convert Polygon Package To CMS Format
 
-1. Go Polygon's Packages, click Full and Download the Linux version.
+1. Go to Polygon's Packages, click Full and Download Linux version.
 <img width="1112" alt="image" src="https://user-images.githubusercontent.com/101823195/232975754-166b7831-db3c-4fbd-9975-38cb05f49e2c.png">
 
 2. Extract the archive to a new folder (Remember to change file name, you can add multiple problems in that folder)
@@ -16,7 +16,7 @@ chmod u+x pack_to_yaml.sh && ./pack_to_yaml.sh
 ```
 <img width="565" alt="image" src="https://github.com/erichung1113/cms/assets/101823195/7d1abe87-d0aa-4e28-8dfa-7e382b96756d">
 
-3. You need to go into the Contest folder and run the command to import contest on CMS.
+3. Go into the Contest folder and run the command to import contest to CMS.
 ```
 chmod u+x import.sh && ./import.sh
 ```
@@ -35,7 +35,8 @@ chmod u+x pack_testcase.sh && ./pack_testcase.sh
 ```
 <img width="517" alt="image" src="https://user-images.githubusercontent.com/101823195/232981339-1042964f-0612-475c-9798-0d411ea68d14.png">
 
-3. Go to `Test Case` at the bottom of CMS Task, and click `Add multiple testcases` then select the zip file of the problem to upload.
+3. Go to `Test Case` at the bottom of Task on CMS, and click `Add multiple testcases` then select the zip file of the problem to upload.
+<img width="524" alt="Screenshot 2023-08-02 at 5 00 27 AM" src="https://github.com/erichung1113/cms/assets/101823195/b071d1df-5405-4db9-a87e-527f11b3e4c6">
 <img width="965" alt="image" src="https://user-images.githubusercontent.com/101823195/232983399-95e84d0e-5eaf-490d-8f2f-770c17d560c5.png">
 
-4. Finish!🥳
+4. Congratulations!🥳
