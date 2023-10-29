@@ -7,10 +7,13 @@
 
 Next, there will be two conversion methods, which are `Full Contest Conversion` and `TestCase Only Conversion`.
 ## Full Contest Conversion
-1. Copy pack_to_yaml.sh to your folder
+1. Copy pack_to_yaml.sh to your folder or use the following command
+```
+curl https://raw.githubusercontent.com/erichung9060/cms/main/Polygon/pack_to_yaml.sh -o pack_to_yaml.sh
+```
 <img width="564" alt="image" src="https://github.com/erichung1113/cms/assets/101823195/87570ab6-e875-497c-acaa-ecbcb9c1f6fe">
 
-2. Run the following command, then a folder named Contest will be generated, which is a CMS contest package with problems you added.
+3. Run the following command, then a folder named Contest will be generated, which is a CMS contest package with problems you added.
 ```
 chmod u+x pack_to_yaml.sh && ./pack_to_yaml.sh
 ```
