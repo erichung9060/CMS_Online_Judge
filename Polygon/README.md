@@ -29,12 +29,12 @@ chmod u+x import.sh && ./import.sh
     c. contest's start time and end time
 
 ## TestCase Only Conversion
-1. Copy pack_testcase.sh to that folder
+1. Copy pack_to_testcase.sh.sh to that folder
 <img width="565" alt="image" src="https://github.com/erichung1113/cms/assets/101823195/1699839a-45de-40e5-9601-8dd4569698c7">
 
 2. Run the following command, then a folder named cmsTestCase will be generated, which contains zip files for each problem.
 ```
-chmod u+x pack_testcase.sh && ./pack_testcase.sh
+chmod u+x pack_to_testcase.sh.sh && ./pack_to_testcase.sh.sh
 ```
 <img width="517" alt="image" src="https://user-images.githubusercontent.com/101823195/232981339-1042964f-0612-475c-9798-0d411ea68d14.png">
 
