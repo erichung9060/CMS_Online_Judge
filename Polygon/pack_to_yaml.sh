@@ -2,8 +2,8 @@
 set -e
 
 # configuration
-Contest_Name="week0"
-Contest_Description="AA競程 - TOI模擬賽 Online Judge"
+Contest_Name="test_contest"
+Contest_Description="contest of testing cms judge"
 #--------------
 
 if [[ -d "Contest" ]]; then
