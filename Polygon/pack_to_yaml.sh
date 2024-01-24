@@ -11,7 +11,7 @@ if [[ -d "Contest" ]]; then
 fi
 mkdir "Contest"
 
-echo -n "Enter the name of the problem to add to a contest, or leave blank to add all."
+echo -n "Enter the name of the problem to add to a contest, or leave blank to add all : "
 read toDoList
 
 if [[ $toDoList == "" ]];then
