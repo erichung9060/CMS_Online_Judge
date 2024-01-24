@@ -30,6 +30,9 @@ chmod u+x import.sh && ./import.sh
 
 ## TestCase Only Conversion
 1. Copy pack_to_testcase.sh to that folder
+```
+curl https://raw.githubusercontent.com/erichung9060/cms/main/Polygon/pack_to_testcase.sh -o pack_to_testcase.sh
+```
 <img width="565" alt="image" src="https://github.com/erichung1113/cms/assets/101823195/1699839a-45de-40e5-9601-8dd4569698c7">
 
 2. Run the following command, then a folder named cmsTestCase will be generated, which contains zip files for each problem.
