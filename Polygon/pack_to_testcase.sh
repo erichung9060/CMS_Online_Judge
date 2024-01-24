@@ -5,10 +5,11 @@ if [[ ! -d "cmsTestCase" ]]; then
     mkdir "cmsTestCase"
 fi
 
-if [[ $# == 0 ]];then
-    toDoList=$(ls | sed s/pack_to_testcase.sh//g | sed s/cmsTestCase//g)
-else
-    toDoList=$@
+echo -n "Enter the name of the problem to zip testcase, or leave blank to zip all : "
+read toDoList
+
+if [[ $toDoList == "" ]];then
+    toDoList=$(ls | sed s/pack_to_yaml.sh//g | sed s/Contest//g)
 fi
 
 for PROBLEM_NAME in $toDoList; do
