@@ -32,18 +32,18 @@ for PROBLEM_NAME in $toDoList; do
 
     ALL=""
     for ((i = 1; i <= $N; i++)); do
-        zero="000"
-        zero=${zero:0:$((3-${#i}))}
+        index=$((i-1))
+        index=$(printf "%03d" $index)
 
         if [ $i -lt 10 ]; then
-            cp "$PROBLEM_NAME/tests/0$i" "$PROBLEM_NAME/RenamedTestCase/input.$zero$i"
-            cp "$PROBLEM_NAME/tests/0$i.a" "$PROBLEM_NAME/RenamedTestCase/output.$zero$i"
+            cp "$PROBLEM_NAME/tests/0$i" "$PROBLEM_NAME/RenamedTestCase/input.$index"
+            cp "$PROBLEM_NAME/tests/0$i.a" "$PROBLEM_NAME/RenamedTestCase/output.$index"
         else
-            cp "$PROBLEM_NAME/tests/$i" "$PROBLEM_NAME/RenamedTestCase/input.$zero$i"
-            cp "$PROBLEM_NAME/tests/$i.a" "$PROBLEM_NAME/RenamedTestCase/output.$zero$i"
+            cp "$PROBLEM_NAME/tests/$i" "$PROBLEM_NAME/RenamedTestCase/input.$index"
+            cp "$PROBLEM_NAME/tests/$i.a" "$PROBLEM_NAME/RenamedTestCase/output.$index"
         fi
 
-        ALL+="$PROBLEM_NAME/RenamedTestCase/input.$zero$i $PROBLEM_NAME/RenamedTestCase/output.$zero$i "
+        ALL+="$PROBLEM_NAME/RenamedTestCase/input.$index $PROBLEM_NAME/RenamedTestCase/output.$index "
     done
 
     if [ -f "cmsTestCase/${PROBLEM_NAME}.zip" ]; then
