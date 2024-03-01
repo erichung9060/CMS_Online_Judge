@@ -15,7 +15,7 @@ echo -n "Enter the name of the problem to add to a contest, or leave blank to ad
 read toDoList
 
 if [[ $toDoList == "" ]];then
-    toDoList=$(ls | sed s/pack_to_yaml.sh//g | sed s/Contest//g)
+    toDoList=$(ls | sed s/pack_to_yaml.sh//g | sed s/pack_to_testcase.sh//g | sed s/Contest//g)
 fi
 
 echo -e "name: \"$Contest_Name\"
