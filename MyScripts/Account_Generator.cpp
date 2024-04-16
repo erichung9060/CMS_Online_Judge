@@ -21,33 +21,41 @@ string Generate_Password() {
     return password;
 }
 
-/*
-    Output:
-
-    users:
-      - username: "team1"
-        password: "dssinsdnds"
-        first_name: "TeamName"
-*/
+string Generate_Account(int idx) {
+    stringstream account;
+    account << "team" << setw(3) << setfill('0') << idx;
+    return account.str();
+}
 
 int main() {
     srand(time(0));
-
+    map<string, pair<string, string> > team;
     ifstream TeamnameFile("teamname.txt");
     ofstream PasswordFile("password.txt");
+    ofstream AccountFile("account.txt");
     ofstream SettingFile("contest.user.yaml");
 
-    string teamname;
-    int User_Idx = 1;
+    string prev_teamname, teamname, account, password;
+    int Team_Idx = 1;
     while (getline(TeamnameFile, teamname)) {
-        string password = Generate_Password();
-        PasswordFile << password << '\n';
-        SettingFile << "  - username: \"team" << setw(3) << setfill('0') << User_Idx << "\"\n";
-        SettingFile << "    password: \"" << password << "\"\n";
-        SettingFile << "    first_name: \"" << teamname << "\"\n";
-        User_Idx++;
+        if(teamname == prev_teamname) {
+            AccountFile << account << "\n";
+            PasswordFile << password << "\n";
+        }else{
+            account = Generate_Account(Team_Idx);
+            password = Generate_Password();
+            
+            SettingFile << "  - username: \"" << account << "\"\n";
+            SettingFile << "    password: \"" << password << "\"\n";
+            SettingFile << "    first_name: \"" << teamname << "\"\n";
+            AccountFile << account << "\n";
+            PasswordFile << password << "\n";
+            Team_Idx++;
+        }
+		prev_teamname = teamname;
     }
     TeamnameFile.close();
     PasswordFile.close();
+    AccountFile.close();
     SettingFile.close();
 }
