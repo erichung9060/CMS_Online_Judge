@@ -1,3 +1,5 @@
+#python moss.py [problem_name]
+
 import mosspy, sys
 
 userid = 61861013
