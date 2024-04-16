@@ -23,10 +23,10 @@ sudo docker exec -t cms sudo cmsAddAdmin admin
 接著打開瀏覽器並輸入以下網址就可使用啦
 
 
-參賽者介面：`[本幾ip]:8888`
+參賽者介面：`localhost:8888`
 
-管理員介面：`[本幾ip]:8889`
+管理員介面：`localhost:8889`
 
-計分板：`[本幾ip]:8890`
+計分板：`localhost:8890`
 
 更詳細的教學請見 : [CMS Online Judge Docker安裝教學](https://hackmd.io/WKsC33XYRme4sM-Kkst_XA)
