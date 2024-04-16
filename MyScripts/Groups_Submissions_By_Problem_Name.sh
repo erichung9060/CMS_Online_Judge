@@ -15,14 +15,17 @@ getProblemName(){
 for team in $(ls submissions); do
     for submission in $(ls submissions/$team); do
         problem=$(getProblemName "submissions/$team/$submission")
-        time=$(echo "$submission" | sed 's/ /_/g')
-        rename="${team}_${problem}_${time}.cpp"
+	time=$(echo $submission | awk -F '.' '{print $1}')
         
         if [ ! -d "$problem" ]; then
             mkdir -p "Problem_Submissions/$problem"
         fi
-        cp "submissions/$team/$submission" "Problem_Submissions/$problem/$rename"
-
+        cp "submissions/$team/$submission" "Problem_Submissions/$problem/$team"
+	echo -e "\n$time" >> "Problem_Submissions/$problem/$team"
     done
     echo "$team done!"
+done
+
+for problem in $(ls Problem_Submissions); do
+    python moss.py $problem
 done
