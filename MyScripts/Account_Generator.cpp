@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
-// #define ANNOYMOUS_TEAM_NUMBER 10
+#define AUTO_GENERATE_TEAM_NAME
+#define AUTO_GENERATE_ACCOUNT
+
+#ifdef AUTO_GENERATE_TEAM_NAME
+    #define TEAM_NUMBER 10
+#endif
 
 #define PASSWORD_LENTH 6
 const char chr[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -33,30 +38,42 @@ int main() {
     map<string, pair<string, string> > team;
     ifstream TeamnameFile("teamname.txt");
     ofstream PasswordFile("password.txt");
-    ofstream AccountFile("account.txt");
     ofstream SettingFile("contest.user.yaml");
+#ifdef AUTO_GENERATE_ACCOUNT
+        ofstream AccountFile("account.txt");
+#else
+        ifstream AccountFile("account.txt");
+#endif
 
     string prev_teamname, teamname, account, password;
     int Team_Idx = 1;
 
-#ifdef ANNOYMOUS_TEAM_NUMBER
-    while(Team_Idx < ANNOYMOUS_TEAM_NUMBER){
-    teamname = Generate_Account(Team_Idx);
+#ifdef AUTO_GENERATE_TEAM_NAME
+    while(Team_Idx < TEAM_NUMBER){
+        teamname = Generate_Account(Team_Idx);
 #else
     while (getline(TeamnameFile, teamname)) {
 #endif
         if(teamname == prev_teamname) {
+#ifdef AUTO_GENERATE_ACCOUNT
             AccountFile << account << "\n";
+#endif
             PasswordFile << password << "\n";
             continue;
         }
+#ifdef AUTO_GENERATE_ACCOUNT
         account = Generate_Account(Team_Idx);
+#else
+        getline(AccountFile, account);
+#endif
         password = Generate_Password();
         
         SettingFile << "  - username: \"" << account << "\"\n";
         SettingFile << "    password: \"" << password << "\"\n";
         SettingFile << "    first_name: \"" << teamname << "\"\n";
+#ifdef AUTO_GENERATE_ACCOUNT
         AccountFile << account << "\n";
+#endif
         PasswordFile << password << "\n";
         Team_Idx++;
         
