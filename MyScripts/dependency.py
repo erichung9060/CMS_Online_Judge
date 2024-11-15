@@ -15,22 +15,36 @@ group_dependencies = {}
 group_counts = {}
 group_testcase_regex = {}
 
+for test in root.find(".//judging").findall(".//test"): # find test in tests
+    group = test.get('group')
+
+    if group not in groups:
+        groups.append(group)
+        group_counts[group] = 0
+
+    group_counts[group] += 1
+
+
 for group in root.findall(".//group"):
     group_name = group.get('name')
-    groups.append(group_name)
     
     points = group.get('points', '0')
     group_points[group_name] = int(float(points))
 
-    dependencies = [dep.get('group') for dep in group.findall('.//dependency')]
-    group_dependencies[group_name] = dependencies
+    # dependencies = [dep.get('group') for dep in group.findall('.//dependency')]
+    dependencies = []
+    for dep in group.findall('.//dependency'):
+        dep_name = dep.get('group')
 
-for test in root.findall(".//test"):
-    group = test.get('group')
-    if group in group_counts:
-        group_counts[group] += 1
-    else:
-        group_counts[group] = 1
+        dependencies.append(dep_name)
+        if len(group_dependencies[dep_name]):
+            dependencies.extend(group_dependencies[dep_name])
+            
+    dependencies = list(set(dependencies))
+    dependencies.sort()
+    # dependencies = list(set(dependencies)).sort()
+    
+    group_dependencies[group_name] = dependencies
 
 for group in groups:
     print(f"Group {group} : number: {group_counts[group]}, points: {group_points[group]}, dependency: {group_dependencies[group]}")
