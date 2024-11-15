@@ -42,7 +42,6 @@ for group in root.findall(".//group"):
             
     dependencies = list(set(dependencies))
     dependencies.sort()
-    # dependencies = list(set(dependencies)).sort()
     
     group_dependencies[group_name] = dependencies
 
