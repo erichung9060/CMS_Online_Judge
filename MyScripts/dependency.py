@@ -31,7 +31,6 @@ for group in root.findall(".//group"):
     points = group.get('points', '0')
     group_points[group_name] = int(float(points))
 
-    # dependencies = [dep.get('group') for dep in group.findall('.//dependency')]
     dependencies = []
     for dep in group.findall('.//dependency'):
         dep_name = dep.get('group')
@@ -56,7 +55,6 @@ for group in groups:
     print(f"{cur:03d} {cur + count - 1:03d}")
     cur += count
     regex = input()
-    # regex = group
     group_testcase_regex[group] = regex
 
 
