@@ -1,7 +1,9 @@
-import xml.etree.ElementTree as ET
-import json
+# usage : python3 dependency.py pA
 
-file_path = "problem.xml"
+import xml.etree.ElementTree as ET
+import json, sys
+
+file_path = sys.argv[1] + "/problem.xml"
 
 # Load the XML file
 tree = ET.parse(file_path)
@@ -31,7 +33,7 @@ for test in root.findall(".//test"):
         group_counts[group] = 1
 
 for group in groups:
-    print(group, group_counts[group], group_points[group], group_dependencies[group])
+    print(f"Group {group} : number: {group_counts[group]}, points: {group_points[group]}, dependency: {group_dependencies[group]}")
 
 #---------------------------------------------------
 
