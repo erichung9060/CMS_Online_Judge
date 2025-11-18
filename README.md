@@ -10,7 +10,7 @@ sudo apt install docker-compose -y
 ```
 **Step. 3 下載cms**
 ```
-git clone https://github.com/erichung1113/cms.git && cd cms
+git clone https://github.com/erichung9060/cms.git && cd cms
 ```
 **Step. 4 執行docker compose**
 ```
