@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
-      - "/cms_docker_postgresql_data:/var/lib/postgresql/data"
+      - "/cms_docker_postgresql_data:/var/lib/postgresql"
 
   cms_test:
     container_name: cms
